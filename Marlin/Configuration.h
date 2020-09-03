@@ -497,10 +497,10 @@
   // #define DEFAULT_Ki 1.08
   // #define DEFAULT_Kd 114
 
- // E3Dv6 @ 12V w/ fan @ 100%
-    #define  DEFAULT_Kp 26.11
-    #define  DEFAULT_Ki 2.42
-    #define  DEFAULT_Kd 70.48
+  // E3Dv6 @ 12V w/ fan @ 100%
+  //#define  DEFAULT_Kp 26.11
+  //#define  DEFAULT_Ki 2.42
+  //#define  DEFAULT_Kd 70.48
   
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -511,6 +511,11 @@
   //#define DEFAULT_Kp 63.0
   //#define DEFAULT_Ki 2.25
   //#define DEFAULT_Kd 440
+
+  // Exels Printer
+  #define DEFAULT_Kp 8.80
+  #define DEFAULT_Ki 1.25
+  #define DEFAULT_Kd 15.48
 
 #endif // PIDTEMP
 
@@ -554,9 +559,9 @@
   // #define DEFAULT_bedKd 305.4
 
  //48V AC 500W MK2 with isolator and SSR, 3mm borosilicate + 2mm pei (aluminium frame)
-    #define  DEFAULT_bedKp 158.36
-    #define  DEFAULT_bedKi 14.75
-    #define  DEFAULT_bedKd 425.09
+    #define  DEFAULT_bedKp 219.39
+    #define  DEFAULT_bedKi 38.63
+    #define  DEFAULT_bedKd 830.76
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -1012,7 +1017,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 3000
@@ -1144,11 +1149,11 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 215
-#define Y_BED_SIZE 215
+#define X_BED_SIZE 200
+#define Y_BED_SIZE 170
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
+#define X_MIN_POS -18
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -1255,8 +1260,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-// #define AUTO_BED_LEVELING_BILINEAR
-#define AUTO_BED_LEVELING_UBL
+#define AUTO_BED_LEVELING_BILINEAR
+//#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
 /**

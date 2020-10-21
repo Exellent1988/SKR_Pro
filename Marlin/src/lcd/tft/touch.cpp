@@ -90,7 +90,6 @@ void Touch::idle() {
       if (wait_for_user) {
         touch_control_type = CLICK;
         ui.lcd_clicked = true;
-        if (ui.external_control) wait_for_user = false;
         return;
       }
     #endif

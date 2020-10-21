@@ -178,15 +178,6 @@
   #define HAS_MOTOR_CURRENT_I2C 1
 #endif
 
-#if ENABLED(Z_STEPPER_AUTO_ALIGN)
-  #if ENABLED(Z_STEPPER_ALIGN_KNOWN_STEPPER_POSITIONS)
-    #undef Z_STEPPER_ALIGN_AMP
-  #endif
-  #ifndef Z_STEPPER_ALIGN_AMP
-    #define Z_STEPPER_ALIGN_AMP 1.0
-  #endif
-#endif
-
 // Multiple Z steppers
 #ifndef NUM_Z_STEPPER_DRIVERS
   #define NUM_Z_STEPPER_DRIVERS 1
@@ -227,7 +218,10 @@
   #define NEEDS_HARDWARE_PWM 1
 #endif
 
-#if !defined(__AVR__) || !defined(USBCON)
+#if defined(__AVR__) && defined(USBCON)
+  #define IS_AT90USB 1
+  #undef SERIAL_XON_XOFF // Not supported on USB-native devices
+#else
   // Define constants and variables for buffering serial data.
   // Use only 0 or powers of 2 greater than 1
   // : [0, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, ...]
@@ -239,9 +233,6 @@
   #ifndef TX_BUFFER_SIZE
     #define TX_BUFFER_SIZE 32
   #endif
-#else
-  // SERIAL_XON_XOFF not supported on USB-native devices
-  #undef SERIAL_XON_XOFF
 #endif
 
 #if ENABLED(HOST_ACTION_COMMANDS)

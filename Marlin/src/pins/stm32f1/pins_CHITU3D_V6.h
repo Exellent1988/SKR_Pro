@@ -139,8 +139,6 @@
 
   // Shared FSMC
 
-// Shared FSMC Configs
-#if HAS_FSMC_TFT
   #define TOUCH_CS_PIN                      PB7   // SPI1_NSS
   #define TOUCH_SCK_PIN                     PA5   // SPI1_SCK
   #define TOUCH_MISO_PIN                    PA6   // SPI1_MISO
@@ -169,6 +167,9 @@
   // Color UI
   #define TFT_DRIVER                     ILI9488
   #define TFT_BUFFER_SIZE                  14400
+#elif ENABLED(TFT_CLASSIC_UI)
+  // Emulated DOGM
+  #define GRAPHICAL_TFT_UPSCALE                3
 #endif
 
 // XPT2046 Touch Screen calibration

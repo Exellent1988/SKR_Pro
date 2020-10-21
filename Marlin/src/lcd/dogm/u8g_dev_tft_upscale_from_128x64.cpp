@@ -69,8 +69,6 @@
 #include "../tft_io/tft_io.h"
 TFT_IO tftio;
 
-TFT_IO tftio;
-
 #define WIDTH  LCD_PIXEL_WIDTH
 #define HEIGHT LCD_PIXEL_HEIGHT
 #define PAGE_HEIGHT 8

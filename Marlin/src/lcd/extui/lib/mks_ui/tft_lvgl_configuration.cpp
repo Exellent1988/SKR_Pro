@@ -72,7 +72,7 @@ lv_group_t*  g;
 uint16_t DeviceCode = 0x9488;
 extern uint8_t sel_id;
 
-extern bool flash_preview_begin, default_preview_flg, gcode_preview_over;
+extern uint8_t gcode_preview_over, flash_preview_begin, default_preview_flg;
 
 uint8_t bmp_public_buf[17 * 1024];
 
@@ -470,7 +470,6 @@ void lv_encoder_pin_init() {
           constexpr uint8_t newbutton = 0;
 
         #endif
-
 
         static uint8_t buttons = 0;
         buttons = newbutton;
